@@ -1,5 +1,5 @@
 (ns aoc-2022.day01
-  (:require [utils :refer [slurp-resource read-blocks]]))
+  (:require [utils :refer [read-blocks get-input]]))
 
 (def demo-input "1000
 2000
@@ -15,10 +15,10 @@
 9000
 
 10000")
-(def input (slurp-resource {:year 2022 :day 1}))
+(def input (get-input {:year 2022 :day 1}))
 
 (defn input->list [input]
-  (->> (read-blocks input {:as-int? true})
+  (->> (read-blocks input {:as-long? true})
        (map #(apply + %))
        (sort >)))
 
