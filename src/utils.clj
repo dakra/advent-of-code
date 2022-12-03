@@ -36,7 +36,7 @@
                  as-double? false
                  as-keyword? false}}]
   (cond->> (str/split input partition-re)
-    true (map #(str/split % items-re))
+    items-re (map #(str/split % items-re))
     as-long? (map #(map parse-long %))
     as-double? (map #(map parse-double %))
     as-keyword? (map #(map keyword %))))
