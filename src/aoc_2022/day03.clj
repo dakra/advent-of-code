@@ -1,4 +1,5 @@
 (ns aoc-2022.day03
+  "🎄 Advent of Code 2022 - Day 3"
   (:require [clojure.set :as set]
             [utils :refer [read-lines get-input]]))
 

@@ -1,4 +1,5 @@
 (ns aoc-2022.day01
+  "🎄 Advent of Code 2022 - Day 1"
   (:require [utils :refer [read-blocks get-input]]))
 
 (def demo-input "1000

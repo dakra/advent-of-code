@@ -1,4 +1,5 @@
 (ns aoc-2022.day02
+  "🎄 Advent of Code 2022 - Day 2"
   (:require [utils :refer [read-lines get-input]]))
 
 (def demo-input* "A Y
