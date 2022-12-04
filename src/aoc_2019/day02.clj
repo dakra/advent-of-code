@@ -1,18 +1,16 @@
 (ns aoc-2019.day02
-  (:require [clojure.java.io :as io]
-            [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [utils :refer [get-input read-lines]]))
 
 (def sample
   (-> "1,9,10,3,2,3,11,0,99,30,40,50"
       (str/split #",")
       (->> (mapv parse-long))))
 
+(def input* (get-input {:year 2019 :day 2}))
+
 (def input
-  (-> "2019/day02.txt"
-      io/resource
-      slurp
-      (str/split ,,, #",")
-      (->> (mapv parse-long ,,,))))
+  (read-lines input* {:partition-re #"," :items-re nil :as-long? true}))
 
 (def num->op {1 +,
               2 *,})

@@ -1,9 +1,9 @@
 (ns aoc-2019.day01
-  (:require [clojure.java.io :as io]
-            [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [utils :refer [get-input read-lines]]))
 
-(def input
-  (->> "2019/day01.txt" io/resource slurp str/split-lines (map parse-long)))
+(def input* (get-input {:year 2019 :day 1}))
+(def input (->> input* str/split-lines (map parse-long)))
 
 (defn required-fuel [m]
   (- (quot m 3) 2))

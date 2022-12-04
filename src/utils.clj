@@ -35,11 +35,17 @@
                  as-long? false
                  as-double? false
                  as-keyword? false}}]
-  (cond->> (str/split input partition-re)
-    items-re (map #(str/split % items-re))
-    as-long? (map #(map parse-long %))
-    as-double? (map #(map parse-double %))
-    as-keyword? (map #(map keyword %))))
+  (cond-> (str/split input partition-re)
+    items-re (cond->>
+                 true (map #(str/split % items-re))
+                 as-long? (map #(mapv parse-long %))
+                 as-double? (map #(mapv parse-double %))
+                 as-keyword? (map #(mapv keyword %)))
+
+    (not items-re) (cond->>
+                       as-long? (mapv parse-long)
+                       as-double? (mapv parse-double)
+                       as-keyword? (mapv keyword))))
 
 (defn read-blocks
   "Return a seq of seqs partitioned by an empty newline.
