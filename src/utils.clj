@@ -61,3 +61,7 @@
   Options are the same as in `read-lines`."
   [input & opts]
   (read-lines input (into {:partition-re #"\n\n" :items-re #"\n"} opts)))
+
+;; From https://stackoverflow.com/a/10347404/480468
+(defn transpose [m]
+  (apply mapv vector m))
