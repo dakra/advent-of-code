@@ -62,6 +62,8 @@
   [input & opts]
   (read-lines input (into {:partition-re #"\n\n" :items-re #"\n"} opts)))
 
-;; From https://stackoverflow.com/a/10347404/480468
 (defn transpose [m]
   (apply mapv vector m))
+
+(defn queue [& args]
+  (into clojure.lang.PersistentQueue/EMPTY args))
